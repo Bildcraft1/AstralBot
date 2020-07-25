@@ -1,1 +1,1 @@
-web: node AstralBot.js
+worker: node AstralBot.js
