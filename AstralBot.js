@@ -19,7 +19,7 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
 
     if (command === 'help') {
-        message.channel.send('For support go in the <#736140652374655106> channel');
+        message.channel.send('For support go in the <#641348069178343434> channel');
     } else if (command === 'prefix') {
         message.reply(`you can either ping me or use \`${prefix}\` as my prefix.`);
     }
@@ -70,7 +70,7 @@ client.on('message', async message => {
     const command = args.shift().toLowerCase();
 
     if (command === "purge") {
-        if (!message.member.roles.cache.some(r => ["Administrator", "Moderator"].includes(r.name)))
+        if (!message.member.roles.cache.some(r => ["Administrator", "Moderator", "Staff"].includes(r.name)))
             return message.reply("Sorry, you don't have permissions to use this!");
         const deleteCount = parseInt(args[0], 10);
         if (!deleteCount || deleteCount < 2 || deleteCount > 100)
