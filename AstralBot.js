@@ -55,6 +55,8 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
 
     if (command === 'say') {
+        if (!message.member.roles.cache.some(r => ["Administrator", "Moderator", "Staff"].includes(r.name)))
+           return message.reply("Sorry, you don't have permissions to use this!");
         const sayMessage = args.join(" ");
         message.delete().catch(O_o => { });
         message.channel.send(sayMessage);
