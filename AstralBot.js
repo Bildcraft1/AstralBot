@@ -159,5 +159,19 @@ client.on('message', message => {
     }
 });
 
+client.on('messageDelete', message => {
+    if(!message.partial) {
+        const channel = client.channels.cache.get('738511241697296424');
+        if(channel) {
+            const embed = new MessageEmbed()
+                .setTitle('Deleted Message')
+                .addField('Author', `${message.author.tag} (${message.author.id})`, true)
+                .addField('Channel', `${message.channel.name} (${message.channel.id})`, true)
+                .setDescription(message.content)
+                .setTimestamp();
+            channel.send(embed);
+        }
+    }
+});
 
 client.login('NzM1OTMzNTIzODc3Mjk4MTg3.XxndhQ.xzlevB0RiJb63pI2kPCUVB4RGIA');
