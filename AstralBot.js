@@ -3,12 +3,12 @@ const client = new Discord.Client();
 const prefix = '??';
 const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const guildInvites = new Map();
-
+const Ver = 'v1.1'
 client.on('ready', () => {
     console.log('========AstralNetwork Bot========');
     console.log('=======By Italiano at Arch=======');
     console.log(`Logged in with ${client.user.tag}!`);
-    client.user.setActivity(`AstralNetwork Bot v1.0 | ?? or ping me`);
+    client.user.setActivity(`AstralNetwork Bot ${Ver} | ?? or ping me`);
 });
 
 client.on('message', message => {
@@ -250,64 +250,6 @@ client.on('message', message => {
       message.channel.send(embed);
     }
   }
-});
-
-client.on('message', async message => {
-    if(message.author.bot) return;
-    if(message.content.toLowerCase().startsWith('??createpoll')) {
-        let args = message.content.split(" ");
-        let time = args[1];
-        let question = args.slice(2).join(" ");
-        let regex = new RegExp(/^([0-9]{2}|[0-9]{1})[sSmM]$/);
-        if(regex.test(time)) {
-            if(time.toLowerCase().endsWith('s')) {
-                time = parseInt(time.substring(0, time.indexOf('s')));
-                time *= 1000;
-            } 
-            else if(time.toLowerCase().endsWith('m')) {
-                time = parseInt(time.substring(0, time.indexOf('m')));
-                time *= 60 * 1000;
-            }
-            const embed = new Discord.MessageEmbed()
-                .setTitle(question)
-                .setDescription('React with 👍 or 👎')
-                .setTimestamp();
-            try {
-                const polls = new Map();
-                const userVotes = new Map();
-                let filter = (reaction, user) => {
-                    if(user.bot) return false;
-                    if(['👍', '👎'].includes(reaction.emoji.name)) {
-                        if(polls.get(reaction.message.id).get(user.id))
-                            return false;
-                        else {
-                            userVotes.set(user.id, reaction.emoji.name);
-                            return true;
-                        }
-                    }
-                }
-                let msg = await message.channel.send(embed);
-                await msg.react('👍');
-                await msg.react('👎');
-                polls.set(msg.id, userVotes);
-                let reactions = await msg.awaitReactions(filter, { time: time });
-                let thumbsUp = reactions.get('👍');
-                let thumbsDown = reactions.get('👎');
-                let thumbsUpResults = 0, thumbsDownResults = 0;
-                if(thumbsUp)
-                    thumbsUpResults = thumbsUp.users.cache.filter(u => !u.bot).size;
-                if(thumbsDown)
-                    thumbsDownResults = thumbsDown.users.cache.filter(u => !u.bot).size;
-                const resultsEmbed = new MessageEmbed()
-                    .setTitle('Results')
-                    .setDescription(`👍 - ${thumbsUpResults} votes\n\n👎 - ${thumbsDownResults} votes\n`);
-                await message.channel.send(resultsEmbed);
-            }
-            catch(err) {
-                console.log(err);
-            }
-        }
-    }
 });
 
 client.login('NzM1OTMzNTIzODc3Mjk4MTg3.XxndhQ.xzlevB0RiJb63pI2kPCUVB4RGIA');
