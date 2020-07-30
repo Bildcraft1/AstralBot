@@ -4,6 +4,7 @@ const prefix = '??';
 const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const guildInvites = new Map();
 const Ver = 'v1.1'
+
 client.on('ready', () => {
     console.log('========AstralNetwork Bot========');
     console.log('=======By Italiano at Arch=======');
@@ -97,13 +98,13 @@ client.on('message', message => {
         .setDescription('List of all of my commands')
         .addFields(
             { name: 'Help', value: 'Send where to get help', inline: true },
-            { name: 'Avatar', value: 'Send your/someone avatar image', inline: true },
+            { name: 'Stats', value: 'Send your/someone stats or the server stats', inline: true },
             { name: 'Say', value: 'The bot will say what you write', inline: true },
             { name: 'Purge', value: 'Delete bulk messages', inline: true },
 	    { name: 'Socials', value: 'List all of the Astral Network Socials', inline: true},
         )
         .setTimestamp()
-        .setFooter('AstralBot v1.0 | Bot created by Italiano at Arch#1877', 'https://cdn.discordapp.com/attachments/734824554546987159/734824886194667590/1590785879445.png');
+        .setFooter('AstralBot ${Ver} | Bot created by Italiano at Arch#1877', 'https://cdn.discordapp.com/attachments/734824554546987159/734824886194667590/1590785879445.png');
 
     if (command === 'commands') {
         message.channel.send(commands);
@@ -147,7 +148,7 @@ client.on('message', message => {
             { name: 'Website', value: `https://www.astral-network.net`, inline: true },
         )
         .setTimestamp()
-        .setFooter('AstralBot v1.0', 'https://cdn.discordapp.com/attachments/734824554546987159/734824886194667590/1590785879445.png');
+        .setFooter('AstralBot ${Ver}', 'https://cdn.discordapp.com/attachments/734824554546987159/734824886194667590/1590785879445.png');
 
     if (command === 'socials') {
         message.channel.send(socials);
