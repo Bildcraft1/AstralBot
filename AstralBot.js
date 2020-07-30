@@ -163,7 +163,7 @@ client.on('messageDelete', message => {
     if(!message.partial) {
         const channel = client.channels.cache.get('738511241697296424');
         if(channel) {
-            const embed = new MessageEmbed()
+            const embed = new Discord.MessageEmbed()
                 .setTitle('Deleted Message')
                 .addField('Author', `${message.author.tag} (${message.author.id})`, true)
                 .addField('Channel', `${message.channel.name} (${message.channel.id})`, true)
