@@ -220,7 +220,7 @@ client.on('message', message => {
         message.guild.members.cache.get(args[1]);
       if(member) {
         const embed = new Discord.MessageEmbed()
-          .setAuthor(`${member.user.tag} (${member.id})`, member.user.displayAvatarURL())
+          .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL())
           .setThumbnail(member.user.displayAvatarURL())
           .addField('Created On', member.user.createdAt.toLocaleString(), true)
           .addField('Joined On', member.joinedAt, true)
