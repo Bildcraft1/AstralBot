@@ -254,6 +254,7 @@ client.on('message', message => {
 });
 
 client.on = async (client, message, args) => {
+    if (message.content.toLowerCase().startsWith('??ban')) {
     try {
         const user = message.mentions.users.first()
         const settings = client.getSettings(message.guild.id)
@@ -285,6 +286,7 @@ client.on = async (client, message, args) => {
     } catch (err) {
         message.channel.send('There was an error!\n' + err + '').catch()
     }
+}
 }
 
 exports.conf = {
