@@ -104,7 +104,7 @@ client.on('message', message => {
 	    { name: 'Socials', value: 'List all of the Astral Network Socials', inline: true},
         )
         .setTimestamp()
-        .setFooter('AstralBot ${Ver} | Bot created by Italiano at Arch#1877', 'https://cdn.discordapp.com/attachments/734824554546987159/734824886194667590/1590785879445.png');
+        .setFooter(`AstralBot ${Ver} | Bot created by Italiano at Arch#1877`, 'https://cdn.discordapp.com/attachments/734824554546987159/734824886194667590/1590785879445.png');
 
     if (command === 'commands') {
         message.channel.send(commands);
@@ -148,7 +148,7 @@ client.on('message', message => {
             { name: 'Website', value: `https://www.astral-network.net`, inline: true },
         )
         .setTimestamp()
-        .setFooter('AstralBot ${Ver}', 'https://cdn.discordapp.com/attachments/734824554546987159/734824886194667590/1590785879445.png');
+        .setFooter(`AstralBot ${Ver}`, 'https://cdn.discordapp.com/attachments/734824554546987159/734824886194667590/1590785879445.png');
 
     if (command === 'socials') {
         message.channel.send(socials);
