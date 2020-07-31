@@ -21,7 +21,7 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
 
     if (command === 'help') {
-        message.channel.send('For support go in the <#641348069178343434> channel');
+        message.channel.send('For support go in the <#641348069178343434> channel, if you want to see my commands do ??commands');
     } else if (command === 'prefix') {
         message.reply(`you can either ping me or use \`${prefix}\` as my prefix.`);
     }
@@ -102,6 +102,8 @@ client.on('message', message => {
             { name: 'Say', value: 'The bot will say what you write', inline: true },
             { name: 'Purge', value: 'Delete bulk messages', inline: true },
             { name: 'Socials', value: 'List all of the Astral Network Socials', inline: true },
+            { name: 'Kick', value: 'Kick an User', inline: true },
+            { name: 'Ban', value: 'Ban an User', inline: true },
         )
         .setTimestamp()
         .setFooter(`AstralBot ${Ver} | Bot created by Italiano at Arch#1877`, 'https://cdn.discordapp.com/attachments/734824554546987159/734824886194667590/1590785879445.png');
@@ -255,38 +257,38 @@ client.on('message', message => {
 
 client.on = async (client, message, args) => {
     if (message.content.toLowerCase().startsWith('??ban')) {
-    try {
-        const user = message.mentions.users.first()
-        const settings = client.getSettings(message.guild.id)
+        try {
+            const user = message.mentions.users.first()
+            const settings = client.getSettings(message.guild.id)
 
-        if (user) {
-            const member = message.guild.member(user)
-            if (member) {
-                member.ban(args.slice(1).join(' ')).then(() => {
-                    message.reply('Successfully banned ${user.tag}!')
+            if (user) {
+                const member = message.guild.member(user)
+                if (member) {
+                    member.ban(args.slice(1).join(' ')).then(() => {
+                        message.reply('Successfully banned ${user.tag}!')
 
-                    const modLogChannel = settings.modLogChannel
-                    if (modLogChannel && message.guild.channels.find(c => c.name === settings.modLogChannel)) {
-                        const embed = new Discord.RichEmbed()
-                            .setTitle('User Ban')
-                            .setColor('#eeeeee')
-                            .setDescription(`Name: ${user.username}\nID: ${user.id}\nReason: ${args.slice(1).join(' ')}\nModerator: ${message.author.username}`)
+                        const modLogChannel = settings.modLogChannel
+                        if (modLogChannel && message.guild.channels.find(c => c.name === settings.modLogChannel)) {
+                            const embed = new Discord.RichEmbed()
+                                .setTitle('User Ban')
+                                .setColor('#eeeeee')
+                                .setDescription(`Name: ${user.username}\nID: ${user.id}\nReason: ${args.slice(1).join(' ')}\nModerator: ${message.author.username}`)
 
-                        message.guild.channels.find(c => c.name === settings.modLogChannel).send(embed)
-                    }
-                }).catch(err => {
-                    message.reply('I was unable to ban the user!')
-                })
+                            message.guild.channels.find(c => c.name === settings.modLogChannel).send(embed)
+                        }
+                    }).catch(err => {
+                        message.reply('I was unable to ban the user!')
+                    })
+                } else {
+                    message.reply('That user isn\'t in this guild!')
+                }
             } else {
-                message.reply('That user isn\'t in this guild!')
+                message.reply('You didn\'t mention the user to ban!')
             }
-        } else {
-            message.reply('You didn\'t mention the user to ban!')
+        } catch (err) {
+            message.channel.send('There was an error!\n' + err + '').catch()
         }
-    } catch (err) {
-        message.channel.send('There was an error!\n' + err + '').catch()
     }
-}
 }
 
 exports.conf = {
@@ -294,6 +296,42 @@ exports.conf = {
     aliases: ['b'],
     guildOnly: true,
     permLevel: 'Moderator'
+}
+
+client.on = async (client, message, args) => {
+    if (message.content.toLowerCase().startsWith('??ban')) {
+        try {
+            const user = message.mentions.users.first()
+            const settings = client.getSettings(message.guild.id)
+
+            if (user) {
+                const member = message.guild.member(user)
+                if (member) {
+                    member.kick(args.slice(1).join(' ')).then(() => {
+                        message.reply(`Successfully kicked ${user.tag}`)
+
+                        const modLogChannel = settings.modLogChannel
+                        if (modLogChannel && message.guild.channels.find(c => c.name === settings.modLogChannel)) {
+                            const embed = new Discord.RichEmbed()
+                                .setTitle('User Ban')
+                                .setColor(colors.red)
+                                .setDescription(`Name: ${user.username}\nID: ${user.id}\nReason: ${args.slice(1).join(' ')}\nModerator: ${message.author.username}`)
+
+                            message.guild.channels.find(c => c.name === settings.modLogChannel).send(embed).catch(console.error)
+                        }
+                    }).catch(err => {
+                        message.reply('I wasn\'t able to kick the member')
+                    })
+                } else {
+                    message.reply('That user isn\'t in this guild!')
+                }
+            } else {
+                message.reply('You didn\'t mention the user to kick!')
+            }
+        } catch (err) {
+            message.channel.send('There was an error!\n' + err).catch()
+        }
+    }
 }
 
 client.login('NzM1OTMzNTIzODc3Mjk4MTg3.XxndhQ.xzlevB0RiJb63pI2kPCUVB4RGIA');
