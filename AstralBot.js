@@ -58,7 +58,7 @@ client.on('message', message => {
 
     if (command === 'say') {
         if (!message.member.roles.cache.some(r => ["Administrator", "Moderator", "Staff"].includes(r.name)))
-           return message.reply("Sorry, you don't have permissions to use this!");
+            return message.reply("Sorry, you don't have permissions to use this!");
         const sayMessage = args.join(" ");
         message.delete().catch(O_o => { });
         message.channel.send(sayMessage);
@@ -101,7 +101,7 @@ client.on('message', message => {
             { name: 'Stats', value: 'Send your/someone stats or the server stats', inline: true },
             { name: 'Say', value: 'The bot will say what you write', inline: true },
             { name: 'Purge', value: 'Delete bulk messages', inline: true },
-	    { name: 'Socials', value: 'List all of the Astral Network Socials', inline: true},
+            { name: 'Socials', value: 'List all of the Astral Network Socials', inline: true },
         )
         .setTimestamp()
         .setFooter(`AstralBot ${Ver} | Bot created by Italiano at Arch#1877`, 'https://cdn.discordapp.com/attachments/734824554546987159/734824886194667590/1590785879445.png');
@@ -162,9 +162,9 @@ client.on('message', message => {
 });
 
 client.on('messageDelete', message => {
-    if(!message.partial) {
+    if (!message.partial) {
         const channel = client.channels.cache.get('738511241697296424');
-        if(channel) {
+        if (channel) {
             const embed = new Discord.MessageEmbed()
                 .setTitle('Deleted Message')
                 .addField('Author', `${message.author.tag} (${message.author.id})`, true)
@@ -197,60 +197,60 @@ client.on('guildMemberAdd', async member => {
             .setTimestamp()
             .setTitle(`${usedInvite.url}`);
         const welcomeChannel = member.guild.channels.cache.find(channel => channel.id === '738516100597285104');
-        if(welcomeChannel) {
+        if (welcomeChannel) {
             welcomeChannel.send(embed).catch(err => console.log(err));
         }
     }
-    catch(err) {
+    catch (err) {
         console.log(err);
     }
 });
 
 client.on('message', message => {
-  if(message.author.bot) return;
-  console.log(message.mentions);
-  if(message.content.toLowerCase().startsWith('??stats')) {
-    const args = message.content.split(' ');
-    console.log(args);
-    if(args.length > 2) {
-      message.channel.send(`Incorrect Usage: !stats | !stats <user_id> | !stats @mention`);
-    } else if(args.length === 2) {
-      const member = message.mentions.members.size === 1 ? 
-        message.mentions.members.first() :
-        message.guild.members.cache.get(args[1]);
-      if(member) {
-        const embed = new Discord.MessageEmbed()
-          .setAuthor(`${member.id}`, member.user.displayAvatarURL())
-          .setThumbnail(member.user.displayAvatarURL())
-          .addField('Created On', member.user.createdAt.toLocaleString(), true)
-          .addField('Joined On', member.joinedAt, true)
-          .addField('Kickable', member.kickable, false)
-          .addField('Voice Channel', member.voice.channel ? member.voice.channel.name + `(${member.voice.channel.id})` : 'None')
-          .addField('Presence', member.presence.status)
-          .setDescription(`${member.roles.cache.map(role => role.toString()).join(' ')}`);
-        message.channel.send(embed);
-      } else {
-        message.channel.send(`I couldn't find that member with ID ${args[1]}`);
-      }
-      
-    } else {
-      const { guild } = message;
-      const embed = new Discord.MessageEmbed()
-        .setAuthor(`${guild.name} (${guild.id})`, guild.iconURL())
-        .setThumbnail(guild.iconURL())
-        .addField('Created On', guild.createdAt.toLocaleString(), true)
-        .addField('Guild Owner', guild.owner.user.tag)
-        .addField('Total Members', guild.memberCount, true)
-        .addField('Total Real Members', guild.members.cache.filter(member => !member.user.bot).size, true)
-        .addField('Total Bots', guild.members.cache.filter(member => member.user.bot).size, true)
-        .addField('Total Channels', guild.channels.cache.size, true)
-        .addField('Total Text Channels', guild.channels.cache.filter(ch => ch.type === 'text').size, true)
-        .addField('Total Voice Channels', guild.channels.cache.filter(ch => ch.type === 'voice').size, true)
-        .setColor('#5CC5FF')
-        .setDescription(`${guild.roles.cache.map(role => role.toString()).join(' ')}`);
-      message.channel.send(embed);
+    if (message.author.bot) return;
+    console.log(message.mentions);
+    if (message.content.toLowerCase().startsWith('??stats')) {
+        const args = message.content.split(' ');
+        console.log(args);
+        if (args.length > 2) {
+            message.channel.send(`Incorrect Usage: !stats | !stats <user_id> | !stats @mention`);
+        } else if (args.length === 2) {
+            const member = message.mentions.members.size === 1 ?
+                message.mentions.members.first() :
+                message.guild.members.cache.get(args[1]);
+            if (member) {
+                const embed = new Discord.MessageEmbed()
+                    .setAuthor(`${member.id}`, member.user.displayAvatarURL())
+                    .setThumbnail(member.user.displayAvatarURL())
+                    .addField('Created On', member.user.createdAt.toLocaleString(), true)
+                    .addField('Joined On', member.joinedAt, true)
+                    .addField('Kickable', member.kickable, false)
+                    .addField('Voice Channel', member.voice.channel ? member.voice.channel.name + `(${member.voice.channel.id})` : 'None')
+                    .addField('Presence', member.presence.status)
+                    .setDescription(`${member.roles.cache.map(role => role.toString()).join(' ')}`);
+                message.channel.send(embed);
+            } else {
+                message.channel.send(`I couldn't find that member with ID ${args[1]}`);
+            }
+
+        } else {
+            const { guild } = message;
+            const embed = new Discord.MessageEmbed()
+                .setAuthor(`${guild.name} (${guild.id})`, guild.iconURL())
+                .setThumbnail(guild.iconURL())
+                .addField('Created On', guild.createdAt.toLocaleString(), true)
+                .addField('Guild Owner', guild.owner.user.tag)
+                .addField('Total Members', guild.memberCount, true)
+                .addField('Total Real Members', guild.members.cache.filter(member => !member.user.bot).size, true)
+                .addField('Total Bots', guild.members.cache.filter(member => member.user.bot).size, true)
+                .addField('Total Channels', guild.channels.cache.size, true)
+                .addField('Total Text Channels', guild.channels.cache.filter(ch => ch.type === 'text').size, true)
+                .addField('Total Voice Channels', guild.channels.cache.filter(ch => ch.type === 'voice').size, true)
+                .setColor('#5CC5FF')
+                .setDescription(`${guild.roles.cache.map(role => role.toString()).join(' ')}`);
+            message.channel.send(embed);
+        }
     }
-  }
 });
 
 client.login('NzM1OTMzNTIzODc3Mjk4MTg3.XxndhQ.xzlevB0RiJb63pI2kPCUVB4RGIA');
