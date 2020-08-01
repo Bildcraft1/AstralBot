@@ -165,7 +165,7 @@ client.on('message', message => {
 
 client.on('messageDelete', message => {
     if (!message.partial) {
-        const channel = client.channels.cache.get('738511241697296424');
+        const channel = client.channels.cache.get('739219291143929907');
         if (channel) {
             const embed = new Discord.MessageEmbed()
                 .setTitle('Deleted Message')
@@ -198,7 +198,7 @@ client.on('guildMemberAdd', async member => {
             .setDescription(`${member.user.tag} is the ${member.guild.memberCount} to join.\nJoined using ${usedInvite.inviter.tag}\nNumber of uses: ${usedInvite.uses}`)
             .setTimestamp()
             .setTitle(`${usedInvite.url}`);
-        const welcomeChannel = member.guild.channels.cache.find(channel => channel.id === '738516100597285104');
+        const welcomeChannel = member.guild.channels.cache.find(channel => channel.id === '739219322790215740');
         if (welcomeChannel) {
             welcomeChannel.send(embed).catch(err => console.log(err));
         }
