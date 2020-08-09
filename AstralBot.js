@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const prefix = "??";
 const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const guildInvites = new Map();
-const Ver = "v1.1";
+const Ver = "v1.2";
 
 client.on("ready", () => {
   console.log("========AstralNetwork Bot========");
