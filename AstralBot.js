@@ -334,4 +334,21 @@ client.on = async (client, message, args) => {
     }
 }
 
+client.on('message', message => {
+    const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`);
+    if (!prefixRegex.test(message.content)) return;
+
+    const [, matchedPrefix] = message.content.match(prefixRegex);
+    const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
+    const command = args.shift().toLowerCase();
+
+    if (command === 'announce') {
+        if (!message.member.roles.cache.some(r => ["Administrator", "Moderator", "Staff"].includes(r.name)))
+            return message.reply("Sorry, you don't have permissions to use this!");
+        const sayMessage = args.join(" ");
+        message.delete().catch(O_o => { });
+        client.channels.get("742104957636837447").send(sayMessage)
+    }
+});
+
 client.login('NzM1OTMzNTIzODc3Mjk4MTg3.XxndhQ.xzlevB0RiJb63pI2kPCUVB4RGIA');
