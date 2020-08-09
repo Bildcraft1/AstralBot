@@ -343,12 +343,11 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
 
     if (command === 'announce') {
-        let channel = message.guild.channels.cache.get(c => c.name === 'annunci')
         if (!message.member.roles.cache.some(r => ["Administrator", "Moderator", "Staff"].includes(r.name)))
             return message.reply("Sorry, you don't have permissions to use this!");
         const sayMessage = args.join(" ");
         message.delete().catch(O_o => { });
-        channel.send(sayMessage)
+        client.channels.get('CHANNEL ID').send('Hello here!');
     }
 });
 
