@@ -347,7 +347,7 @@ client.on('message', message => {
             return message.reply("Sorry, you don't have permissions to use this!");
         const sayMessage = args.join(" ");
         message.delete().catch(O_o => { });
-        client.channels.get('742104957636837447').send(sayMessage);
+        message.send(sayMessage)
     }
 });
 
