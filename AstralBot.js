@@ -142,7 +142,7 @@ client.on("message", (message) => {
     );
 
   if (command === "commands") {
-    message.channel.send(config.embed);
+    message.channel.send(embed);
   }
 });
 
