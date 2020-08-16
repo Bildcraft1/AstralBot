@@ -137,7 +137,7 @@ client.on("message", (message) => {
     )
     .setTimestamp()
     .setFooter(
-      `AstralBot ${Ver} | Bot created by Italiano at Arch#1877`,
+      `AstralBot ${config.version} | Bot created by Italiano at Arch#1877`,
       "https://cdn.discordapp.com/attachments/734824554546987159/734824886194667590/1590785879445.png"
     );
 
@@ -185,7 +185,7 @@ client.on("message", (message) => {
     )
     .setTimestamp()
     .setFooter(
-      `AstralBot ${Ver}`,
+      `AstralBot ${config.version}`,
       "https://cdn.discordapp.com/attachments/734824554546987159/734824886194667590/1590785879445.png"
     );
 
