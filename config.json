@@ -3,7 +3,5 @@
     "staff": "《Staff》",
     "version": "v1.2",
     "prefix": "??",
-    "command": "args.shift().toLowerCase();",
-    "args": "message.content.slice(matchedPrefix.length).trim().split(/ +/);",
     "embed": "new Discord.MessageEmbed()"
 }

@@ -20,8 +20,7 @@ client.on("message", (message) => {
   );
   if (!prefixRegex.test(message.content)) return;
   const command = args.shift().toLowerCase();
-  config.command;
-  config.args;
+  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
   const [, matchedPrefix] = message.content.match(prefixRegex);
   if (command === "help") {
     message.channel.send(
@@ -46,8 +45,7 @@ client.on("message", (message) => {
   );
   if (!prefixRegex.test(message.content)) return;
   const command = args.shift().toLowerCase();
-  config.command;
-  config.args;
+  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
   const [, matchedPrefix] = message.content.match(prefixRegex);
   if (command === "avatar") {
     message.reply(message.author.displayAvatarURL());
@@ -62,10 +60,8 @@ client.on("message", (message) => {
   );
   if (!prefixRegex.test(message.content)) return;
   const command = args.shift().toLowerCase();
-  config.command;
-  config.args;
+  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
   const [, matchedPrefix] = message.content.match(prefixRegex);
-
   if (command === "say") {
     if (
       !message.member.roles.cache.some((r) =>
@@ -85,8 +81,7 @@ client.on("message", async (message) => {
   );
   if (!prefixRegex.test(message.content)) return;
   const command = args.shift().toLowerCase();
-  config.command;
-  config.args;
+  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
   const [, matchedPrefix] = message.content.match(prefixRegex);
   if (command === "purge") {
     if (
@@ -117,10 +112,9 @@ client.on("message", (message) => {
   );
   if (!prefixRegex.test(message.content)) return;
   const command = args.shift().toLowerCase();
-  config.command;
-  config.args;
+  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
   const [, matchedPrefix] = message.content.match(prefixRegex);
-  config.embed
+  const embed = new Discord.MessageEmbed()
     .setColor("#0099ff")
     .setTitle("Commands")
     .setDescription("List of all of my commands")
@@ -158,8 +152,7 @@ client.on("message", async (message) => {
   );
   if (!prefixRegex.test(message.content)) return;
   const command = args.shift().toLowerCase();
-  config.command;
-  config.args;
+  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
   const [, matchedPrefix] = message.content.match(prefixRegex);
   if (command === "fruits") {
     try {
@@ -178,10 +171,9 @@ client.on("message", (message) => {
   );
   if (!prefixRegex.test(message.content)) return;
   const command = args.shift().toLowerCase();
-  config.command;
-  config.args;
+  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
   const [, matchedPrefix] = message.content.match(prefixRegex);
-  config.embed
+  const embed = new Discord.MessageEmbed()
     .setColor("#0099ff")
     .setTitle("Socials")
     .setDescription("List of all of AstralNetwork Socials")
@@ -198,7 +190,7 @@ client.on("message", (message) => {
     );
 
   if (command === "socials") {
-    message.channel.send(config.embed);
+    message.channel.send(embed);
   }
   if (command === "invite") {
     message.channel.send("https://discord.gg/td2PUSn");
@@ -352,10 +344,8 @@ client.on("message", (message) => {
   );
   if (!prefixRegex.test(message.content)) return;
   const command = args.shift().toLowerCase();
-  config.command;
-  config.args;
+  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
   const [, matchedPrefix] = message.content.match(prefixRegex);
-
   if (command === "announce") {
     if (
       !message.member.roles.cache.some((r) =>
