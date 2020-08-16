@@ -19,8 +19,8 @@ client.on("message", (message) => {
     `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
   );
   if (!prefixRegex.test(message.content)) return;
-  const command = args.shift().toLowerCase();
   const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
   const [, matchedPrefix] = message.content.match(prefixRegex);
   if (command === "help") {
     message.channel.send(
@@ -44,8 +44,8 @@ client.on("message", (message) => {
     `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
   );
   if (!prefixRegex.test(message.content)) return;
-  const command = args.shift().toLowerCase();
   const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
   const [, matchedPrefix] = message.content.match(prefixRegex);
   if (command === "avatar") {
     message.reply(message.author.displayAvatarURL());
@@ -59,8 +59,8 @@ client.on("message", (message) => {
     `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
   );
   if (!prefixRegex.test(message.content)) return;
-  const command = args.shift().toLowerCase();
   const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
   const [, matchedPrefix] = message.content.match(prefixRegex);
   if (command === "say") {
     if (
@@ -80,8 +80,8 @@ client.on("message", async (message) => {
     `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
   );
   if (!prefixRegex.test(message.content)) return;
-  const command = args.shift().toLowerCase();
   const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
   const [, matchedPrefix] = message.content.match(prefixRegex);
   if (command === "purge") {
     if (
@@ -111,8 +111,8 @@ client.on("message", (message) => {
     `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
   );
   if (!prefixRegex.test(message.content)) return;
-  const command = args.shift().toLowerCase();
   const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
   const [, matchedPrefix] = message.content.match(prefixRegex);
   const embed = new Discord.MessageEmbed()
     .setColor("#0099ff")
@@ -151,8 +151,8 @@ client.on("message", async (message) => {
     `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
   );
   if (!prefixRegex.test(message.content)) return;
-  const command = args.shift().toLowerCase();
   const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
   const [, matchedPrefix] = message.content.match(prefixRegex);
   if (command === "fruits") {
     try {
@@ -170,8 +170,8 @@ client.on("message", (message) => {
     `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
   );
   if (!prefixRegex.test(message.content)) return;
-  const command = args.shift().toLowerCase();
   const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
   const [, matchedPrefix] = message.content.match(prefixRegex);
   const embed = new Discord.MessageEmbed()
     .setColor("#0099ff")
@@ -343,8 +343,8 @@ client.on("message", (message) => {
     `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
   );
   if (!prefixRegex.test(message.content)) return;
-  const command = args.shift().toLowerCase();
   const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
   const [, matchedPrefix] = message.content.match(prefixRegex);
   if (command === "announce") {
     if (
