@@ -52,7 +52,7 @@ client.on("message", (message) => {
   if (command === "say") {
     if (
       !message.member.roles.cache.some((r) =>
-        ["Administrator", "Moderator", Staff].includes(r.name)
+        ["Administrator", "Moderator", config.staff].includes(r.name)
       )
     )
       return message.reply("Sorry, you don't have permissions to use this!");
@@ -69,7 +69,7 @@ client.on("message", async (message) => {
   if (command === "purge") {
     if (
       !message.member.roles.cache.some((r) =>
-        ["Administrator", "Moderator", Staff].includes(r.name)
+        ["Administrator", "Moderator", config.staff].includes(r.name)
       )
     )
       return message.reply("Sorry, you don't have permissions to use this!");
