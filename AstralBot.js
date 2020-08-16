@@ -17,6 +17,7 @@ client.on("message", (message) => {
     `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
   );
   if (!prefixRegex.test(message.content)) return;
+  const command = args.shift().toLowerCase();
   config.arguments;
   if (command === "help") {
     message.channel.send(
