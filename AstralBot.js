@@ -2,10 +2,6 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const config = require("./config.json");
-const prefixRegex = new RegExp(
-  `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
-);
-if (!prefixRegex.test(message.content)) return;
 
 client.on("ready", () => {
   console.log("========AstralNetwork Bot========");
@@ -15,7 +11,10 @@ client.on("ready", () => {
 });
 
 client.on("message", (message) => {
-  prefixRegex;
+  const prefixRegex = new RegExp(
+    `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
+  );
+  if (!prefixRegex.test(message.content)) return;
   config.arguments;
   if (command === "help") {
     message.channel.send(
@@ -46,7 +45,10 @@ client.on("message", (message) => {
 });
 
 client.on("message", (message) => {
-  prefixRegex;
+  const prefixRegex = new RegExp(
+    `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
+  );
+  if (!prefixRegex.test(message.content)) return;
   config.arguments;
 
   if (command === "say") {
@@ -63,7 +65,10 @@ client.on("message", (message) => {
 });
 
 client.on("message", async (message) => {
-  prefixRegex;
+  const prefixRegex = new RegExp(
+    `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
+  );
+  if (!prefixRegex.test(message.content)) return;
   config.arguments;
 
   if (command === "purge") {
@@ -90,7 +95,10 @@ client.on("message", async (message) => {
 });
 
 client.on("message", (message) => {
-  prefixRegex;
+  const prefixRegex = new RegExp(
+    `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
+  );
+  if (!prefixRegex.test(message.content)) return;
   config.arguments;
   config.embed
     .setColor("#0099ff")
@@ -125,7 +133,10 @@ client.on("message", (message) => {
 });
 
 client.on("message", async (message) => {
-  prefixRegex;
+  const prefixRegex = new RegExp(
+    `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
+  );
+  if (!prefixRegex.test(message.content)) return;
   config.arguments;
   if (command === "fruits") {
     try {
@@ -139,7 +150,10 @@ client.on("message", async (message) => {
 });
 
 client.on("message", (message) => {
-  prefixRegex;
+  const prefixRegex = new RegExp(
+    `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
+  );
+  if (!prefixRegex.test(message.content)) return;
   config.arguments;
   config.embed
     .setColor("#0099ff")
@@ -307,7 +321,10 @@ client.on("message", (message) => {
 });
 
 client.on("message", (message) => {
-  prefixRegex;
+  const prefixRegex = new RegExp(
+    `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
+  );
+  if (!prefixRegex.test(message.content)) return;
   config.arguments;
 
   if (command === "announce") {
