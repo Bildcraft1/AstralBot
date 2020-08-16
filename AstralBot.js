@@ -1,10 +1,11 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const prefix = "??";
 const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-const guildInvites = new Map();
-const Ver = "v1.2";
-const Staff = "《Staff》";
+const config = require("./config.json");
+const prefixRegex = new RegExp(
+  `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
+);
+if (!prefixRegex.test(message.content)) return;
 
 client.on("ready", () => {
   console.log("========AstralNetwork Bot========");
@@ -14,15 +15,8 @@ client.on("ready", () => {
 });
 
 client.on("message", (message) => {
-  const prefixRegex = new RegExp(
-    `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
-  );
-  if (!prefixRegex.test(message.content)) return;
-
-  const [, matchedPrefix] = message.content.match(prefixRegex);
-  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
-
+  prefixRegex;
+  config.arguments;
   if (command === "help") {
     message.channel.send(
       "For support go in the <#641348069178343434> channel, if you want to see my commands do ??commands"
@@ -34,21 +28,15 @@ client.on("message", (message) => {
 
 client.on("guildMemberAdd", (member) => {
   const channel = member.guild.channels.cache.find(
-    (ch) => ch.name === "member-log"
+    (ch) => ch.id === "739219291143929907"
   );
   if (!channel) return;
-  channel.send(`Welcome to the server, ${member}`);
+  channel.send(`L'utente ${member} è joinato`);
 });
 
 client.on("message", (message) => {
-  const prefixRegex = new RegExp(
-    `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
-  );
-  if (!prefixRegex.test(message.content)) return;
-
-  const [, matchedPrefix] = message.content.match(prefixRegex);
-  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
+  config.arguments;
+  prefixRegex;
 
   if (command === "avatar") {
     message.reply(message.author.displayAvatarURL());
@@ -58,14 +46,8 @@ client.on("message", (message) => {
 });
 
 client.on("message", (message) => {
-  const prefixRegex = new RegExp(
-    `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
-  );
-  if (!prefixRegex.test(message.content)) return;
-
-  const [, matchedPrefix] = message.content.match(prefixRegex);
-  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
+  prefixRegex;
+  config.arguments;
 
   if (command === "say") {
     if (
@@ -81,14 +63,8 @@ client.on("message", (message) => {
 });
 
 client.on("message", async (message) => {
-  const prefixRegex = new RegExp(
-    `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
-  );
-  if (!prefixRegex.test(message.content)) return;
-
-  const [, matchedPrefix] = message.content.match(prefixRegex);
-  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
+  prefixRegex;
+  config.arguments;
 
   if (command === "purge") {
     if (
@@ -114,15 +90,9 @@ client.on("message", async (message) => {
 });
 
 client.on("message", (message) => {
-  const prefixRegex = new RegExp(
-    `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
-  );
-  if (!prefixRegex.test(message.content)) return;
-
-  const [, matchedPrefix] = message.content.match(prefixRegex);
-  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
-  const commands = new Discord.MessageEmbed()
+  prefixRegex;
+  config.arguments;
+  config.embed
     .setColor("#0099ff")
     .setTitle("Commands")
     .setDescription("List of all of my commands")
@@ -150,20 +120,13 @@ client.on("message", (message) => {
     );
 
   if (command === "commands") {
-    message.channel.send(commands);
+    message.channel.send(config.embed);
   }
 });
 
 client.on("message", async (message) => {
-  const prefixRegex = new RegExp(
-    `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
-  );
-  if (!prefixRegex.test(message.content)) return;
-
-  const [, matchedPrefix] = message.content.match(prefixRegex);
-  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
-
+  prefixRegex;
+  config.arguments;
   if (command === "fruits") {
     try {
       await message.react("🍎");
@@ -176,15 +139,9 @@ client.on("message", async (message) => {
 });
 
 client.on("message", (message) => {
-  const prefixRegex = new RegExp(
-    `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
-  );
-  if (!prefixRegex.test(message.content)) return;
-
-  const [, matchedPrefix] = message.content.match(prefixRegex);
-  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
-  const socials = new Discord.MessageEmbed()
+  prefixRegex;
+  config.arguments;
+  config.embed
     .setColor("#0099ff")
     .setTitle("Socials")
     .setDescription("List of all of AstralNetwork Socials")
@@ -201,7 +158,7 @@ client.on("message", (message) => {
     );
 
   if (command === "socials") {
-    message.channel.send(socials);
+    message.channel.send(config.embed);
   }
   if (command === "invite") {
     message.channel.send("https://discord.gg/td2PUSn");
@@ -349,127 +306,9 @@ client.on("message", (message) => {
   }
 });
 
-client.on = async (client, message, args) => {
-  if (message.content.toLowerCase().startsWith("??ban")) {
-    try {
-      const user = message.mentions.users.first();
-      const settings = client.getSettings(message.guild.id);
-
-      if (user) {
-        const member = message.guild.member(user);
-        if (member) {
-          member
-            .ban(args.slice(1).join(" "))
-            .then(() => {
-              message.reply("Successfully banned ${user.tag}!");
-
-              const modLogChannel = settings.modLogChannel;
-              if (
-                modLogChannel &&
-                message.guild.channels.find(
-                  (c) => c.name === settings.modLogChannel
-                )
-              ) {
-                const embed = new Discord.RichEmbed()
-                  .setTitle("User Ban")
-                  .setColor("#eeeeee")
-                  .setDescription(
-                    `Name: ${user.username}\nID: ${
-                      user.id
-                    }\nReason: ${args.slice(1).join(" ")}\nModerator: ${
-                      message.author.username
-                    }`
-                  );
-
-                message.guild.channels
-                  .find((c) => c.name === settings.modLogChannel)
-                  .send(embed);
-              }
-            })
-            .catch((err) => {
-              message.reply("I was unable to ban the user!");
-            });
-        } else {
-          message.reply("That user isn't in this guild!");
-        }
-      } else {
-        message.reply("You didn't mention the user to ban!");
-      }
-    } catch (err) {
-      message.channel.send("There was an error!\n" + err + "").catch();
-    }
-  }
-};
-
-exports.conf = {
-  enabled: true,
-  aliases: ["b"],
-  guildOnly: true,
-  permLevel: "Moderator",
-};
-
-client.on = async (client, message, args) => {
-  if (message.content.toLowerCase().startsWith("??ban")) {
-    try {
-      const user = message.mentions.users.first();
-      const settings = client.getSettings(message.guild.id);
-
-      if (user) {
-        const member = message.guild.member(user);
-        if (member) {
-          member
-            .kick(args.slice(1).join(" "))
-            .then(() => {
-              message.reply(`Successfully kicked ${user.tag}`);
-
-              const modLogChannel = settings.modLogChannel;
-              if (
-                modLogChannel &&
-                message.guild.channels.find(
-                  (c) => c.name === settings.modLogChannel
-                )
-              ) {
-                const embed = new Discord.RichEmbed()
-                  .setTitle("User Ban")
-                  .setColor(colors.red)
-                  .setDescription(
-                    `Name: ${user.username}\nID: ${
-                      user.id
-                    }\nReason: ${args.slice(1).join(" ")}\nModerator: ${
-                      message.author.username
-                    }`
-                  );
-
-                message.guild.channels
-                  .find((c) => c.name === settings.modLogChannel)
-                  .send(embed)
-                  .catch(console.error);
-              }
-            })
-            .catch((err) => {
-              message.reply("I wasn't able to kick the member");
-            });
-        } else {
-          message.reply("That user isn't in this guild!");
-        }
-      } else {
-        message.reply("You didn't mention the user to kick!");
-      }
-    } catch (err) {
-      message.channel.send("There was an error!\n" + err).catch();
-    }
-  }
-};
-
 client.on("message", (message) => {
-  const prefixRegex = new RegExp(
-    `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
-  );
-  if (!prefixRegex.test(message.content)) return;
-
-  const [, matchedPrefix] = message.content.match(prefixRegex);
-  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
+  prefixRegex;
+  config.arguments;
 
   if (command === "announce") {
     if (
@@ -484,4 +323,4 @@ client.on("message", (message) => {
   }
 });
 
-client.login("NzM1OTMzNTIzODc3Mjk4MTg3.XxndhQ.xzlevB0RiJb63pI2kPCUVB4RGIA");
+client.login(config.token);
