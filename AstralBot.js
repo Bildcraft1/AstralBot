@@ -19,9 +19,9 @@ client.on("message", (message) => {
     `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
   );
   if (!prefixRegex.test(message.content)) return;
+  const [, matchedPrefix] = message.content.match(prefixRegex);
   const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-  const [, matchedPrefix] = message.content.match(prefixRegex);
   if (command === "help") {
     message.channel.send(
       "For support go in the <#641348069178343434> channel, if you want to see my commands do ??commands"
@@ -44,9 +44,9 @@ client.on("message", (message) => {
     `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
   );
   if (!prefixRegex.test(message.content)) return;
+  const [, matchedPrefix] = message.content.match(prefixRegex);
   const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-  const [, matchedPrefix] = message.content.match(prefixRegex);
   if (command === "avatar") {
     message.reply(message.author.displayAvatarURL());
   } else if (command === "prefix") {
@@ -59,9 +59,9 @@ client.on("message", (message) => {
     `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
   );
   if (!prefixRegex.test(message.content)) return;
+  const [, matchedPrefix] = message.content.match(prefixRegex);
   const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-  const [, matchedPrefix] = message.content.match(prefixRegex);
   if (command === "say") {
     if (
       !message.member.roles.cache.some((r) =>
@@ -80,9 +80,9 @@ client.on("message", async (message) => {
     `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
   );
   if (!prefixRegex.test(message.content)) return;
+  const [, matchedPrefix] = message.content.match(prefixRegex);
   const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-  const [, matchedPrefix] = message.content.match(prefixRegex);
   if (command === "purge") {
     if (
       !message.member.roles.cache.some((r) =>
@@ -111,9 +111,9 @@ client.on("message", (message) => {
     `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
   );
   if (!prefixRegex.test(message.content)) return;
+  const [, matchedPrefix] = message.content.match(prefixRegex);
   const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-  const [, matchedPrefix] = message.content.match(prefixRegex);
   const embed = new Discord.MessageEmbed()
     .setColor("#0099ff")
     .setTitle("Commands")
@@ -151,9 +151,9 @@ client.on("message", async (message) => {
     `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
   );
   if (!prefixRegex.test(message.content)) return;
+  const [, matchedPrefix] = message.content.match(prefixRegex);
   const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-  const [, matchedPrefix] = message.content.match(prefixRegex);
   if (command === "fruits") {
     try {
       await message.react("🍎");
@@ -170,9 +170,9 @@ client.on("message", (message) => {
     `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
   );
   if (!prefixRegex.test(message.content)) return;
+  const [, matchedPrefix] = message.content.match(prefixRegex);
   const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-  const [, matchedPrefix] = message.content.match(prefixRegex);
   const embed = new Discord.MessageEmbed()
     .setColor("#0099ff")
     .setTitle("Socials")
@@ -343,9 +343,9 @@ client.on("message", (message) => {
     `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
   );
   if (!prefixRegex.test(message.content)) return;
+  const [, matchedPrefix] = message.content.match(prefixRegex);
   const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-  const [, matchedPrefix] = message.content.match(prefixRegex);
   if (command === "announce") {
     if (
       !message.member.roles.cache.some((r) =>
