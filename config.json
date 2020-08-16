@@ -3,7 +3,6 @@
     "staff": "《Staff》",
     "version": "v1.2",
     "prefix": "??",
-    "guildInvites": "new Map()",
     "arguments": {
         "command": "args.shift().toLowerCase();",
         "args": "message.content.slice(matchedPrefix.length).trim().split(/ +/);",
