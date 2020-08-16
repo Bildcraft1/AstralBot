@@ -1,13 +1,13 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const config = require("./config.json");
+const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 client.on("ready", () => {
   console.log("========AstralNetwork Bot========");
   console.log("=======By Italiano at Arch=======");
   console.log(`Logged in with ${client.user.tag}!`);
-  client.user.setActivity(`AstralNetwork Bot ${Ver} | ?? or ping me`);
+  client.user.setActivity(`AstralNetwork Bot ${config.version} | ?? or ping me`);
 });
 
 client.on("message", (message) => {
