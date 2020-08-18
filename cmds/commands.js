@@ -20,7 +20,9 @@ exports.run = (client, message, args) => {
         inline: true,
       },
       { name: "Kick", value: "Kick an User", inline: true },
-      { name: "Ban", value: "Ban an User", inline: true }
+      { name: "Ban", value: "Ban an User", inline: true },
+      { name: "Source", value: "Show the bot source code", inline: true },
+      { name: "Rules", value: "Show the rules", inline: true }
     )
     .setTimestamp()
     .setFooter(
