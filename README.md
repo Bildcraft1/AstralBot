@@ -1,6 +1,4 @@
 # AstralBot
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/Bildcraft1/AstralBot.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Bildcraft1/AstralBot/alerts/)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Bildcraft1/AstralBot.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Bildcraft1/AstralBot/context:javascript)
 [![CodeFactor](https://www.codefactor.io/repository/github/bildcraft1/astralbot/badge)](https://www.codefactor.io/repository/github/bildcraft1/astralbot)
 [![Build status](https://ci.appveyor.com/api/projects/status/i6s6qmvdn08yol0a?svg=true)](https://ci.appveyor.com/project/Bildcraft1/astralbot)
 [![Discord](https://img.shields.io/discord/735941536721928303?color=blueviolet&label=Discord&logo=discord&style=flat-square)](https://discord.gg/9nca2tX)
