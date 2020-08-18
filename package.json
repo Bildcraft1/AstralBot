@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@types/node": "^14.0.24",
+    "discord-bot-dashboard": "^0.2.0",
     "discord-rich-presence": "0.0.8",
     "discord-rpc": "^3.1.2",
     "discord.js": "^12.2.0",

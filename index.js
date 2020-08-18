@@ -2,9 +2,15 @@ const fs = require("fs");
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const Enmap = require("enmap");
+const dashboard = require("discord-bot-dashboard");
 
 //Start-Up
 client.on("ready", () => {
+  dashboard.run(client, {
+    port: process.env.PORT,
+    clientSecret: process.env.CLIENTSECRET,
+    redirectURI: process.env.REDIRECTURI,
+  });
   console.log("========AstralNetwork Bot========");
   console.log("=======By Italiano at Arch=======");
   console.log(`Logged in with ${client.user.tag}!`);
