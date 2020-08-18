@@ -1,7 +1,7 @@
 const fs = require("fs");
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const guildInvites = new Map();
+const Enmap = require("enmap");
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./cmds').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
