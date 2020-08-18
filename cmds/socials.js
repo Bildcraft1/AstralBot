@@ -1,13 +1,6 @@
 const Discord = require("discord.js");
 
-module.run = (client, message) => {
-  const prefixRegex = new RegExp(
-    `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
-  );
-  if (!prefixRegex.test(message.content)) return;
-  const [, matchedPrefix] = message.content.match(prefixRegex);
-  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
+exports.run = (client, message, args) => {
   const embed = new Discord.MessageEmbed()
     .setColor("#0099ff")
     .setTitle("Socials")
@@ -23,14 +16,5 @@ module.run = (client, message) => {
       `AstralBot ${process.env.VERSION}`,
       "https://cdn.discordapp.com/attachments/734824554546987159/734824886194667590/1590785879445.png"
     );
-
-  if (command === "socials") {
     message.channel.send(embed);
-  }
-  if (command === "invite") {
-    message.channel.send("https://discord.gg/td2PUSn");
-  }
-  if (command === "telegram") {
-    message.channel.send("https://t.me/AstralNetworkOfficial");
-  }
 };

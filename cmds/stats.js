@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.run = (client, message) => {
+exports.run = (client, message) => {
   if (message.author.bot) return;
   console.log(message.mentions);
   if (message.content.toLowerCase().startsWith("stats")) {
