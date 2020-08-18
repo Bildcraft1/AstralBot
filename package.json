@@ -3,6 +3,7 @@
     "@types/node": "^14.0.24",
     "discord-rich-presence": "0.0.8",
     "discord-rpc": "^3.1.2",
-    "discord.js": "^12.2.0"
+    "discord.js": "^12.2.0",
+    "enmap": "^5.6.1"
   }
 }
