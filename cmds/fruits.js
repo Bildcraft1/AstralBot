@@ -9,7 +9,7 @@ module.exports ={
         const [, matchedPrefix] = message.content.match(prefixRegex);
         const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
         const command = args.shift().toLowerCase();
-        if (command === "fruits") {
+        if (command === "??fruits") {
             try {
                 await message.react("🍎");
                 await message.react("🍊");

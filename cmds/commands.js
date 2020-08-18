@@ -36,7 +36,7 @@ module.exports = {
                 "https://cdn.discordapp.com/attachments/734824554546987159/734824886194667590/1590785879445.png"
             );
 
-        if (command === "commands") {
+        if (command === "??commands") {
             message.channel.send(embed);
         }
     }
