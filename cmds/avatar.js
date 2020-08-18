@@ -1,7 +1,9 @@
+const Discord = require("discord.js");
+
 module.exports = {
     name: 'avatar',
     description: 'send the user avatar',
-    execute(message) {
+    execute(client, message, args) {
         const prefixRegex = new RegExp(
             `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
         );
@@ -9,7 +11,7 @@ module.exports = {
         const [, matchedPrefix] = message.content.match(prefixRegex);
         const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
         const command = args.shift().toLowerCase();
-        if (command === "??avatar") {
+        if (command === "avatar") {
             message.reply(message.author.displayAvatarURL());
         } else if (command === "prefix") {
             message.reply(`you can either ping me or use \`${prefix}\` as my prefix.`);

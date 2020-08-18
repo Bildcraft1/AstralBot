@@ -1,3 +1,5 @@
+const Discord = require("discord.js");
+
 module.exports = {
     name: 'say',
     description: 'The bot repeats user input',
@@ -9,7 +11,7 @@ module.exports = {
         const [, matchedPrefix] = message.content.match(prefixRegex);
         const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
         const command = args.shift().toLowerCase();
-        if (command === "??say") {
+        if (command === "say") {
             if (
                 !message.member.roles.cache.some((r) =>
                     ["Administrator", "Moderator", process.env.STAFF_ROLE].includes(r.name)

@@ -1,10 +1,12 @@
+const Discord = require("discord.js");
+
 module.exports = {
     name: 'stats',
     description: 'See Server/User stats',
     execute(message) {
         if (message.author.bot) return;
         console.log(message.mentions);
-        if (message.content.toLowerCase().startsWith("??stats")) {
+        if (message.content.toLowerCase().startsWith("stats")) {
             const args = message.content.split(" ");
             console.log(args);
             if (args.length > 2) {

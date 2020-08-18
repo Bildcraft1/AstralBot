@@ -9,6 +9,7 @@ for (const file of commandFiles) {
   client.commands.set(command.name, command);
 }
 
+//Start-Up
 client.on("ready", () => {
   console.log("========AstralNetwork Bot========");
   console.log("=======By Italiano at Arch=======");
@@ -16,6 +17,22 @@ client.on("ready", () => {
   client.user.setActivity(
     `AstralNetwork Bot ${process.env.VERSION} | ?? or ping me`
   );
+});
+
+//Message Handler
+client.on("message", async message => {
+  if (message.author.bot) return;
+  if (message.channel.type === "dm") return;
+
+  let prefix = process.env.PREFIX;
+  let messageArray = message.content.split(" ");
+  let command = messageArray[0].toLowerCase();
+  let args = messageArray.slice(1);
+
+  if (!command.startsWith(prefix)) return;
+
+  let cmd = client.command.get(command.slice(prefix.length));
+  if (cmd) cmd.run(client, message, args);
 });
 
 client.on("guildMemberAdd", (member) => {
