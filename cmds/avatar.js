@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports = {
     name: 'avatar',
     description: 'send the user avatar',
-    execute(client, message, args) {
+    execute(client, message) {
         const prefixRegex = new RegExp(
             `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
         );
