@@ -1,9 +1,7 @@
 const fs = require("fs");
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const prefix = process.env.PREFIX;
 const guildInvites = new Map();
-const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./cmds').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
