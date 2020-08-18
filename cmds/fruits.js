@@ -1,4 +1,4 @@
-module.run = async (client, message, args) => {
+exports.run = async (client, message, args) => {
   try {
     await message.react("🍎");
     await message.react("🍊");

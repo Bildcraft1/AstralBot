@@ -1,4 +1,4 @@
-module.run = (client, message) => {
+exports.run = (client, message) => {
   const prefixRegex = new RegExp(
     `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
   );
