@@ -1,5 +1,6 @@
 module.exports = (client, message) => {
-  if (!message.partial) {
+  const Discord = require("discord.js");
+    if (!message.partial) {
     const channel = client.channels.cache.get(process.env.LOGID);
     if (channel) {
       const embed = new Discord.MessageEmbed()

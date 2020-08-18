@@ -1,4 +1,5 @@
 module.exports = async (client, member) => {
+  const Discord = require("discord.js");
   const cachedInvites = guildInvites.get(member.guild.id);
   const newInvites = await member.guild.fetchInvites();
   guildInvites.set(member.guild.id, newInvites);
