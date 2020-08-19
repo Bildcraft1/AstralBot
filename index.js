@@ -2,7 +2,6 @@ const fs = require("fs");
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const Enmap = require("enmap");
-const dashboard = require("discord-bot-dashboard");
 
 //Start-Up
 client.on("ready", () => {
