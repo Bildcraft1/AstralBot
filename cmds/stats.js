@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
+const Embed = Discord.MessageEmbed()
 
-exports.run = (client, message) => {
+exports.run = (client, message, args) => {
   if (message.author.bot) return;
   console.log(message.mentions);
   if (message.content.toLowerCase().startsWith("stats")) {
