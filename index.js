@@ -3,7 +3,6 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const Enmap = require("enmap");
 const GuildInvites = new Map();
-const Embed = Discord.MessageEmbed()
 
 //Start-Up
 client.on("ready", () => {
