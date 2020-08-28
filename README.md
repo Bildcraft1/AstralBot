@@ -1,7 +1,6 @@
 # AstralBot
 [![CodeFactor](https://www.codefactor.io/repository/github/bildcraft1/astralbot/badge)](https://www.codefactor.io/repository/github/bildcraft1/astralbot)
 [![Build status](https://ci.appveyor.com/api/projects/status/i6s6qmvdn08yol0a?svg=true)](https://ci.appveyor.com/project/Bildcraft1/astralbot)
-[![Discord](https://img.shields.io/discord/735941536721928303?color=blueviolet&label=Discord&logo=discord&style=flat-square)](https://discord.gg/9nca2tX)
 
 Just a simple Discord.js bot, i use it on the AstralNetwork Discord but you can Fork it and modify what you want.
 
@@ -16,4 +15,4 @@ Just a simple Discord.js bot, i use it on the AstralNetwork Discord but you can 
    > Make a PR
 
 4) I need to contact you
-   > Telegram: @GesuInTerra, Discord: Italiano at arch#1877 or join the bot server
+   > Telegram: @GesuInTerra, Discord: WhiXard#0420
