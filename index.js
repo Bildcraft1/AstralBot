@@ -2,7 +2,7 @@ const fs = require("fs");
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const Enmap = require("enmap");
-const GuildInvites = new Map();
+new Map();
 
 //Start-Up
 client.on("ready", () => {
