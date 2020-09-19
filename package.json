@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@types/node": "^14.0.24",
+     "node-fetch": ">=2.6.1",
     "discord-rich-presence": "0.0.8",
     "discord-rpc": "^3.1.2",
     "discord.js": "^12.2.0",
